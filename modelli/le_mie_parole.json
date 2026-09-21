@@ -1,0 +1,802 @@
+{
+ "schema": 1,
+ "nome": "Le mie parole",
+ "lingua": "it",
+ "paginaHomeId": "p_home",
+ "barra": {
+  "frase": true,
+  "parla": true,
+  "cancellaParola": true,
+  "cancellaTutto": true,
+  "home": true,
+  "indietro": true
+ },
+ "aspetto": {
+  "preset": "sfondo",
+  "testo": "M",
+  "posizioneTesto": "sotto",
+  "mostraEtichette": true
+ },
+ "voce": {
+  "velocita": 1,
+  "tono": 1,
+  "parlaAlTocco": true
+ },
+ "input": {
+  "metodo": "tocco",
+  "tempoDwell": 1200,
+  "tempoScansione": 1500,
+  "tastoSelezione": "qualsiasi"
+ },
+ "tornaHomeDopoSelezione": false,
+ "pagine": [
+  {
+   "id": "p_home",
+   "nome": "Le mie parole",
+   "righe": 4,
+   "colonne": 4,
+   "celle": [
+    {
+     "id": "c_0001",
+     "x": 0,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "io",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6632
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0002",
+     "x": 1,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "tu",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6625
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0003",
+     "x": 2,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "voglio",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5441
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0004",
+     "x": 3,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "non voglio",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6156
+     },
+     "categoria": "negazione",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0005",
+     "x": 0,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "sì",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5584
+     },
+     "categoria": "sociale",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0006",
+     "x": 1,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "no",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5526
+     },
+     "categoria": "negazione",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0007",
+     "x": 2,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "aiuto",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 19524
+     },
+     "categoria": "sociale",
+     "dice": "Ho bisogno di aiuto",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0008",
+     "x": 3,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "basta",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 37185
+     },
+     "categoria": "negazione",
+     "dice": "Basta, per favore",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0009",
+     "x": 0,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "mangiare",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6456
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": "p_cibo",
+     "nascosta": false
+    },
+    {
+     "id": "c_000a",
+     "x": 1,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "bere",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6061
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": "p_bevande",
+     "nascosta": false
+    },
+    {
+     "id": "c_000b",
+     "x": 2,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "giocare",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6537
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": "p_giochi",
+     "nascosta": false
+    },
+    {
+     "id": "c_000c",
+     "x": 3,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "dormire",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6479
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000d",
+     "x": 0,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "bagno",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5921
+     },
+     "categoria": "nome",
+     "dice": "Devo andare in bagno",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000e",
+     "x": 1,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "casa",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6964
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000f",
+     "x": 2,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "ancora",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 37162
+     },
+     "categoria": "descrittore",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000g",
+     "x": 3,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "mi piace",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 37826
+     },
+     "categoria": "sociale",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    }
+   ]
+  },
+  {
+   "id": "p_cibo",
+   "nome": "Cibo",
+   "righe": 3,
+   "colonne": 4,
+   "celle": [
+    {
+     "id": "c_000h",
+     "x": 0,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "pane",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2494
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000i",
+     "x": 1,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "pasta",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 8652
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000j",
+     "x": 2,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "pizza",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2527
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000k",
+     "x": 3,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "formaggio",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2541
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000l",
+     "x": 0,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "frutta",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 28339
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000m",
+     "x": 1,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "mela",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2462
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000n",
+     "x": 2,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "banana",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2530
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000o",
+     "x": 3,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "verdura",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 28343
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000p",
+     "x": 0,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "biscotti",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2402
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000q",
+     "x": 1,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "gelato",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 35209
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000r",
+     "x": 2,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "patatine",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5400
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000s",
+     "x": 3,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "carne",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2316
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    }
+   ]
+  },
+  {
+   "id": "p_bevande",
+   "nome": "Bevande",
+   "righe": 2,
+   "colonne": 3,
+   "celle": [
+    {
+     "id": "c_000t",
+     "x": 0,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "acqua",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 32464
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000u",
+     "x": 1,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "latte",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2445
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000v",
+     "x": 2,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "succo",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 11461
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000w",
+     "x": 0,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "ancora",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 37162
+     },
+     "categoria": "descrittore",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000x",
+     "x": 1,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "basta",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 37185
+     },
+     "categoria": "negazione",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_000y",
+     "x": 2,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "finito",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5358
+     },
+     "categoria": "sociale",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    }
+   ]
+  },
+  {
+   "id": "p_giochi",
+   "nome": "Giochi",
+   "righe": 3,
+   "colonne": 4,
+   "celle": [
+    {
+     "id": "c_000z",
+     "x": 0,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "palla",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 3241
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0010",
+     "x": 1,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "puzzle",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2540
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0011",
+     "x": 2,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "costruzioni",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 4935
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0012",
+     "x": 3,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "bambola",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 26238
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0013",
+     "x": 0,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "macchinina",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2340
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0014",
+     "x": 1,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "libro",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 25191
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0015",
+     "x": 2,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "disegnare",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 8088
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0016",
+     "x": 3,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "musica",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 24791
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0017",
+     "x": 0,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "tablet",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 28099
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0018",
+     "x": 1,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "bolle di sapone",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6945
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0019",
+     "x": 2,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "altalena",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 4608
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001a",
+     "x": 3,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "bicicletta",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6935
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    }
+   ]
+  }
+ ]
+}

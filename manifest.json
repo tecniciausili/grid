@@ -1,0 +1,63 @@
+{
+    "name": "Griglia - Comunicatore AssistiveTech",
+    "short_name": "Griglia",
+    "description": "Comunicatore CAA a griglie: parole e immagini che parlano con un tocco",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#F4F5FF",
+    "theme_color": "#F4F5FF",
+    "lang": "it-IT",
+    "categories": [
+        "education",
+        "health",
+        "accessibility"
+    ],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "assets/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/icons/icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "id": "./",
+    "shortcuts": [
+        {
+            "name": "Area Utente",
+            "short_name": "Utente",
+            "url": "./utente.html",
+            "icons": [
+                {
+                    "src": "assets/icons/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Area Educatore",
+            "short_name": "Educatore",
+            "url": "./gestione.html",
+            "icons": [
+                {
+                    "src": "assets/icons/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}

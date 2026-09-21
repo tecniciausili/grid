@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#F4F5FF">
+    <meta name="description" content="Griglia - comunicatore CAA a griglie di AssistiveTech: parole, immagini e video che si attivano con un tocco">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Griglia">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <title>Griglia - AssistiveTech</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css?v=2.0.0">
+</head>
+<body class="avvio">
+
+    <header class="avvio-testata">
+        <a class="avvio-marchio" href="https://www.assistivetech.it" target="_blank" rel="noopener" title="AssistiveTech.it">
+            <span class="avvio-logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span><h1>Griglia</h1><small>Comunicatore a griglie · AssistiveTech</small></span>
+        </a>
+            </header>
+
+    <main class="avvio-corpo">
+        <div class="scelta-aree">
+            <a href="gestione.html" class="area-card area-educatore" id="cardEducatore">
+                <span class="area-card-icona" aria-hidden="true"></span>
+                <span class="area-card-testo">
+                    <h2>Area Educatore</h2>
+                    <p>Prepara il comunicatore dell'utente: pagine, celle con pittogrammi o foto, voce registrata, video YouTube.</p>
+                    <ul>
+                        <li>Modelli in italiano già pronti</li>
+                        <li>Su ogni cella la tua voce registrata o un mp3</li>
+                        <li>Archivio video con tempi e categorie</li>
+                        <li>Tocco, permanenza o scansione a un pulsante</li>
+                    </ul>
+                </span>
+                <span class="area-card-freccia" aria-hidden="true"></span>
+            </a>
+            <a href="utente.html" class="area-card area-utente" id="cardUtente">
+                <span class="area-card-icona" aria-hidden="true"></span>
+                <span class="area-card-testo">
+                    <h2>Area Utente</h2>
+                    <p>Apre il comunicatore pronto, bloccato: si tocca e si parla.</p>
+                    <ul>
+                        <li>Le parole toccate compongono la frase</li>
+                        <li>Le celle-cartella aprono altre pagine</li>
+                        <li>Le celle video mostrano il video a tutto schermo</li>
+                    </ul>
+                </span>
+                <span class="area-card-freccia" aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="installa-riquadro" id="installaRiquadro">
+            <img src="assets/icons/apple-touch-icon.png" alt="" class="installa-icona">
+            <div class="installa-testo">
+                <strong>Installa Griglia sul dispositivo</strong>
+                <p class="nota" id="installaNota">Si apre a tutto schermo come un'app, con la sua icona sulla schermata Home, e funziona anche senza connessione.</p>
+            </div>
+            <button type="button" class="btn btn-primario" id="btnInstalla"></button>
+        </div>
+
+        <div class="info-riquadro">
+            <span class="info-riquadro-icona" aria-hidden="true"></span>
+            <div>
+                <strong>Come funziona</strong>
+                <p>Griglia si installa sul dispositivo dell'utente (tablet o computer) e non chiede nessun account: comunicatori, foto,
+                registrazioni e video restano <strong>solo su questo dispositivo</strong>. L'educatore prepara il comunicatore dall'Area Educatore
+                e lo mette in uso; l'utente lo apre dall'Area Utente. Per tornare a modificare basta tenere premuto il lucchetto per due secondi
+                e scegliere «Area educatore»; con «Fine» si torna subito all'uso.</p>
+                <p class="nota">Non cancellare i dati di navigazione del browser: dall'Area Educatore scarica ogni tanto una copia di sicurezza.
+                Serve la connessione per cercare nuovi pittogrammi ARASAAC e per i video YouTube.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <span>Griglia è uno strumento di <a href="https://www.assistivetech.it" target="_blank" rel="noopener">AssistiveTech.it</a> · Pittogrammi <a href="https://arasaac.org" target="_blank" rel="noopener">ARASAAC</a> (CC BY-NC-SA)</span>
+    </footer>
+
+    <div id="toast" class="toast-contenitore" aria-live="polite"></div>
+
+    <script src="js/config.js?v=2.0.0"></script>
+    <script src="js/icone.js?v=2.0.0"></script>
+    <script>
+        (function () {
+            const esc = Griglia.util.escapeHtml;
+            document.querySelector('.area-educatore .area-card-icona').innerHTML = Griglia.icona('utenti');
+            document.querySelector('.area-utente .area-card-icona').innerHTML = Griglia.icona('gioca');
+            document.querySelectorAll('.area-card-freccia').forEach(e => e.innerHTML = Griglia.icona('freccia'));
+            document.querySelector('.info-riquadro-icona').innerHTML = Griglia.icona('info');
+
+            // Aperta come app installata (di solito sul tablet dell'utente): l'Area Utente viene per prima
+            if (matchMedia('(display-mode: standalone)').matches || navigator.standalone === true) document.querySelector('.scelta-aree').classList.add('per-utente');
+            Griglia.registraServiceWorker();
+
+            // ---------- Installazione come app (PWA) ----------
+            // Chrome, Edge e Android mandano "beforeinstallprompt": lo teniamo da parte e lo mostriamo al tocco del pulsante.
+            // Safari su iPad/iPhone non lo manda: il pulsante spiega i tre passi (Condividi → Aggiungi alla schermata Home).
+            const btnInstalla = document.getElementById('btnInstalla');
+            const notaInstalla = document.getElementById('installaNota');
+            let promptInstallazione = null;
+            const giaInstallata = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+            const eIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const segnaInstallata = (testo) => {
+                btnInstalla.innerHTML = `${Griglia.icona('ok')} App installata`;
+                btnInstalla.disabled = true;
+                notaInstalla.textContent = testo;
+            };
+            btnInstalla.innerHTML = `${Griglia.icona('scarica')} Installa sul dispositivo`;
+            if (giaInstallata) segnaInstallata('Stai già usando Griglia come app installata su questo dispositivo.');
+            window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); promptInstallazione = e; });
+            window.addEventListener('appinstalled', () => {
+                promptInstallazione = null;
+                segnaInstallata('Installata: la trovi sulla schermata Home con l\'icona di Griglia.');
+                Griglia.util.toast('Griglia è installata sul dispositivo', 'ok');
+            });
+            btnInstalla.addEventListener('click', async () => {
+                if (promptInstallazione) {
+                    const richiesta = promptInstallazione;
+                    promptInstallazione = null;
+                    richiesta.prompt();
+                    const scelta = await richiesta.userChoice.catch(() => null);
+                    if (!scelta || scelta.outcome !== 'accepted') { promptInstallazione = richiesta; Griglia.util.toast('Installazione annullata: puoi riprovare quando vuoi', 'info'); }
+                    return;
+                }
+                const passi = eIOS
+                    ? ['Apri questa pagina in <strong>Safari</strong>', 'Tocca il pulsante <strong>Condividi</strong> (il quadrato con la freccia verso l\'alto)', 'Scegli <strong>Aggiungi alla schermata Home</strong>, poi <strong>Aggiungi</strong>']
+                    : /Android/i.test(navigator.userAgent)
+                        ? ['Apri questa pagina in <strong>Chrome</strong>', 'Tocca il menu <strong>⋮</strong> in alto a destra', 'Scegli <strong>Installa app</strong> oppure <strong>Aggiungi a schermata Home</strong>']
+                        : ['Apri questa pagina in <strong>Chrome</strong> o <strong>Edge</strong>', 'Clicca l\'icona di installazione a destra nella barra dell\'indirizzo, oppure menu <strong>⋮</strong> → <strong>Installa Griglia</strong>', 'Conferma con <strong>Installa</strong>'];
+                Griglia.util.apriModale(`
+                    <h2 class="modale-titolo">Installa Griglia</h2>
+                    <p class="nota">Il browser non ha mostrato la richiesta automatica: si fa in tre passi.</p>
+                    <ol class="installa-passi">${passi.map(p => `<li>${p}</li>`).join('')}</ol>
+                    <div class="modale-azioni"><button type="button" class="btn btn-primario" id="installaOk">Ho capito</button></div>`, { piccola: true });
+                document.getElementById('installaOk').addEventListener('click', () => Griglia.util.chiudiModale());
+            });
+        })();
+    </script>
+</body>
+</html>

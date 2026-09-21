@@ -1,0 +1,38 @@
+[
+ {
+  "file": "le_mie_parole.json",
+  "nome": "Le mie parole",
+  "descrizione": "Bisogni di tutti i giorni con le pagine Cibo, Bevande e Giochi. Compone frasi come «io voglio mangiare pizza».",
+  "pagine": 4,
+  "celle": 46,
+  "righe": 4,
+  "colonne": 4
+ },
+ {
+  "file": "si_no_aiuto.json",
+  "nome": "Sì, no, aiuto",
+  "descrizione": "Sei celle grandi che parlano subito, senza barra della frase. Per chi inizia.",
+  "pagine": 1,
+  "celle": 6,
+  "righe": 2,
+  "colonne": 3
+ },
+ {
+  "file": "a_scuola.json",
+  "nome": "A scuola",
+  "descrizione": "Parole per la classe: maestra, compagni, pausa, bagno e una pagina di attività.",
+  "pagine": 2,
+  "celle": 28,
+  "righe": 4,
+  "colonne": 4
+ },
+ {
+  "file": "io_e_gli_altri.json",
+  "nome": "Io e gli altri",
+  "descrizione": "Le persone care e le emozioni, con frasi complete già pronte.",
+  "pagine": 1,
+  "celle": 16,
+  "righe": 4,
+  "colonne": 4
+ }
+]

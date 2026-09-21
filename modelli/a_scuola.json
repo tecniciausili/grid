@@ -1,0 +1,498 @@
+{
+ "schema": 1,
+ "nome": "A scuola",
+ "lingua": "it",
+ "paginaHomeId": "p_home",
+ "barra": {
+  "frase": true,
+  "parla": true,
+  "cancellaParola": true,
+  "cancellaTutto": true,
+  "home": true,
+  "indietro": true
+ },
+ "aspetto": {
+  "preset": "sfondo",
+  "testo": "M",
+  "posizioneTesto": "sotto",
+  "mostraEtichette": true
+ },
+ "voce": {
+  "velocita": 1,
+  "tono": 1,
+  "parlaAlTocco": true
+ },
+ "input": {
+  "metodo": "tocco",
+  "tempoDwell": 1200,
+  "tempoScansione": 1500,
+  "tastoSelezione": "qualsiasi"
+ },
+ "tornaHomeDopoSelezione": false,
+ "pagine": [
+  {
+   "id": "p_home",
+   "nome": "A scuola",
+   "righe": 4,
+   "colonne": 4,
+   "celle": [
+    {
+     "id": "c_001h",
+     "x": 0,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "io",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6632
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001i",
+     "x": 1,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "maestra",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6555
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001j",
+     "x": 2,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "compagni",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 38939
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001k",
+     "x": 3,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "aiuto",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 19524
+     },
+     "categoria": "sociale",
+     "dice": "Ho bisogno di aiuto",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001l",
+     "x": 0,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "voglio",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5441
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001m",
+     "x": 1,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "attività",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6624
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": "p_att",
+     "nascosta": false
+    },
+    {
+     "id": "c_001n",
+     "x": 2,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "giocare",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6537
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001o",
+     "x": 3,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "pausa",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 24503
+     },
+     "categoria": "sociale",
+     "dice": "Voglio fare una pausa",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001p",
+     "x": 0,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "bagno",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5921
+     },
+     "categoria": "nome",
+     "dice": "Posso andare in bagno?",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001q",
+     "x": 1,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "acqua",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 32464
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001r",
+     "x": 2,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "finito",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5358
+     },
+     "categoria": "sociale",
+     "dice": "Ho finito",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001s",
+     "x": 3,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "non capisco",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 7180
+     },
+     "categoria": "negazione",
+     "dice": "Non ho capito",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001t",
+     "x": 0,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "sì",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5584
+     },
+     "categoria": "sociale",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001u",
+     "x": 1,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "no",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5526
+     },
+     "categoria": "negazione",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001v",
+     "x": 2,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "grazie",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 8129
+     },
+     "categoria": "sociale",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001w",
+     "x": 3,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "per favore",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 8195
+     },
+     "categoria": "sociale",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    }
+   ]
+  },
+  {
+   "id": "p_att",
+   "nome": "Attività",
+   "righe": 3,
+   "colonne": 4,
+   "celle": [
+    {
+     "id": "c_001x",
+     "x": 0,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "leggere",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 7141
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001y",
+     "x": 1,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "scrivere",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2380
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001z",
+     "x": 2,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "contare",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2714
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0020",
+     "x": 3,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "disegnare",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 8088
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0021",
+     "x": 0,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "colorare",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2348
+     },
+     "categoria": "verbo",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0022",
+     "x": 1,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "musica",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 24791
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0023",
+     "x": 2,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "ginnastica",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 32548
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0024",
+     "x": 3,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "computer",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 7190
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0025",
+     "x": 0,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "libro",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 25191
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0026",
+     "x": 1,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "quaderno",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2359
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0027",
+     "x": 2,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "matita",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2440
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_0028",
+     "x": 3,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "zaino",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2475
+     },
+     "categoria": "nome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    }
+   ]
+  }
+ ]
+}

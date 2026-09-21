@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="theme-color" content="#F4F5FF">
+    <meta name="description" content="Griglia - comunicatore a griglie di AssistiveTech: parole, immagini e video che si attivano con un tocco">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Griglia">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Griglia - AssistiveTech</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css?v=2.0.0">
+    <link rel="stylesheet" href="css/app.css?v=2.0.0">
+</head>
+<body class="app" data-modalita="usa" data-sbloccato="0">
+
+    <header class="testata" id="testata">
+        <div class="testata-sx">
+            <button type="button" id="btnEsci" class="btn-icona solo-sbloccato" aria-label="Esci dal comunicatore" title="Esci"></button>
+            <div class="testata-titolo">
+                <span class="testata-nome" id="nomeComunicatore">Griglia</span>
+                <span class="testata-pagina" id="nomePagina"></span>
+            </div>
+        </div>
+        <div class="testata-dx">
+            <span class="stato-salvataggio" id="statoSalvataggio" aria-live="polite"></span>
+            <button type="button" id="btnAnnulla" class="btn-icona solo-modifica" aria-label="Annulla ultima modifica" title="Annulla (Ctrl+Z)" disabled></button>
+            <button type="button" id="btnModifica" class="btn-testo solo-sbloccato solo-usa" title="Modifica il comunicatore"></button>
+            <button type="button" id="btnEducatore" class="btn-testo solo-sbloccato solo-usa" title="Torna all'Area Educatore"></button>
+            <button type="button" id="btnFine" class="btn-testo btn-testo-pieno solo-modifica" title="Termina la modifica e torna all'uso"></button>
+            <button type="button" id="btnImpostazioni" class="btn-icona solo-sbloccato" aria-label="Impostazioni" title="Impostazioni"></button>
+            <button type="button" id="btnSchermo" class="btn-icona" aria-label="Schermo intero" title="Schermo intero"></button>
+            <button type="button" id="btnBlocco" class="btn-icona btn-blocco" aria-label="Blocca o sblocca l'interfaccia (tieni premuto per sbloccare)" title="Tieni premuto per sbloccare"></button>
+        </div>
+    </header>
+
+    <div class="editor-barra solo-modifica" id="editorBarra" role="toolbar" aria-label="Strumenti di modifica"></div>
+
+    <div class="area" id="area">
+        <div class="colonna-principale" id="areaComunicatore">
+            <section class="barra-frase" id="barraFrase" aria-label="Barra della frase"></section>
+            <main class="palco" id="palco"></main>
+        </div>
+        <aside class="pannello" id="pannello" hidden aria-label="Modifica cella"></aside>
+    </div>
+
+    <div id="toast" class="toast-contenitore" aria-live="polite"></div>
+
+    <script src="js/config.js?v=2.0.0"></script>
+    <script src="js/icone.js?v=2.0.0"></script>
+    <script src="js/modello.js?v=2.0.0"></script>
+    <script src="js/voce.js?v=2.0.0"></script>
+    <script src="js/audio.js?v=2.0.0"></script>
+    <script src="js/arasaac.js?v=2.0.0"></script>
+    <script src="js/veloce.js?v=2.0.0"></script>
+    <script src="js/storage.js?v=2.0.0"></script>
+    <script src="js/video.js?v=2.0.0"></script>
+    <script src="js/input.js?v=2.0.0"></script>
+    <script src="js/griglia.js?v=2.0.0"></script>
+    <script src="js/importa.js?v=2.0.0"></script>
+    <script src="js/editor.js?v=2.0.0"></script>
+    <script src="js/app.js?v=2.0.0"></script>
+</body>
+</html>

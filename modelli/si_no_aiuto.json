@@ -1,0 +1,138 @@
+{
+ "schema": 1,
+ "nome": "Sì, no, aiuto",
+ "lingua": "it",
+ "paginaHomeId": "p_home",
+ "barra": {
+  "frase": false,
+  "parla": false,
+  "cancellaParola": false,
+  "cancellaTutto": false,
+  "home": false,
+  "indietro": false
+ },
+ "aspetto": {
+  "preset": "sfondo",
+  "testo": "L",
+  "posizioneTesto": "sotto",
+  "mostraEtichette": true
+ },
+ "voce": {
+  "velocita": 1,
+  "tono": 1,
+  "parlaAlTocco": true
+ },
+ "input": {
+  "metodo": "tocco",
+  "tempoDwell": 1200,
+  "tempoScansione": 1500,
+  "tastoSelezione": "qualsiasi"
+ },
+ "tornaHomeDopoSelezione": false,
+ "pagine": [
+  {
+   "id": "p_home",
+   "nome": "Sì, no, aiuto",
+   "righe": 2,
+   "colonne": 3,
+   "celle": [
+    {
+     "id": "c_001b",
+     "x": 0,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "sì",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5584
+     },
+     "categoria": "sociale",
+     "dice": "Sì",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001c",
+     "x": 1,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "no",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5526
+     },
+     "categoria": "negazione",
+     "dice": "No",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001d",
+     "x": 2,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "aiuto",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 19524
+     },
+     "categoria": "sociale",
+     "dice": "Ho bisogno di aiuto",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001e",
+     "x": 0,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "basta",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 37185
+     },
+     "categoria": "negazione",
+     "dice": "Basta, per favore",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001f",
+     "x": 1,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "ancora",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 37162
+     },
+     "categoria": "descrittore",
+     "dice": "Ancora, per favore",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_001g",
+     "x": 2,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "bagno",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 5921
+     },
+     "categoria": "nome",
+     "dice": "Devo andare in bagno",
+     "vaiA": null,
+     "nascosta": false
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": ["/assets/*", "/css/*", "/js/*", "/modelli/*", "/*.png", "/*.json", "/*.html", "/service-worker.js"]
+    },
+    "routes": [
+        {
+            "route": "/service-worker.js",
+            "headers": { "Cache-Control": "no-cache" }
+        }
+    ],
+    "mimeTypes": {
+        ".json": "application/json",
+        ".woff2": "font/woff2",
+        ".woff": "font/woff"
+    }
+}

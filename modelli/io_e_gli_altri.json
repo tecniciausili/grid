@@ -1,0 +1,298 @@
+{
+ "schema": 1,
+ "nome": "Io e gli altri",
+ "lingua": "it",
+ "paginaHomeId": "p_home",
+ "barra": {
+  "frase": true,
+  "parla": true,
+  "cancellaParola": true,
+  "cancellaTutto": true,
+  "home": true,
+  "indietro": true
+ },
+ "aspetto": {
+  "preset": "sfondo",
+  "testo": "M",
+  "posizioneTesto": "sotto",
+  "mostraEtichette": true
+ },
+ "voce": {
+  "velocita": 1,
+  "tono": 1,
+  "parlaAlTocco": true
+ },
+ "input": {
+  "metodo": "tocco",
+  "tempoDwell": 1200,
+  "tempoScansione": 1500,
+  "tastoSelezione": "qualsiasi"
+ },
+ "tornaHomeDopoSelezione": false,
+ "pagine": [
+  {
+   "id": "p_home",
+   "nome": "Io e gli altri",
+   "righe": 4,
+   "colonne": 4,
+   "celle": [
+    {
+     "id": "c_0029",
+     "x": 0,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "io",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6632
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002a",
+     "x": 1,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "mamma",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2458
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002b",
+     "x": 2,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "papà",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 31146
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002c",
+     "x": 3,
+     "y": 0,
+     "w": 1,
+     "h": 1,
+     "etichetta": "nonna",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 23710
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002d",
+     "x": 0,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "nonno",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 23718
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002e",
+     "x": 1,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "fratello",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2423
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002f",
+     "x": 2,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "sorella",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 2422
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002g",
+     "x": 3,
+     "y": 1,
+     "w": 1,
+     "h": 1,
+     "etichetta": "amico",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 25790
+     },
+     "categoria": "pronome",
+     "dice": null,
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002h",
+     "x": 0,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "felice",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 35533
+     },
+     "categoria": "descrittore",
+     "dice": "Sono felice",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002i",
+     "x": 1,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "triste",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 35545
+     },
+     "categoria": "descrittore",
+     "dice": "Sono triste",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002j",
+     "x": 2,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "arrabbiato",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 35539
+     },
+     "categoria": "descrittore",
+     "dice": "Sono arrabbiato",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002k",
+     "x": 3,
+     "y": 2,
+     "w": 1,
+     "h": 1,
+     "etichetta": "stanco",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 35537
+     },
+     "categoria": "descrittore",
+     "dice": "Sono stanco",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002l",
+     "x": 0,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "sto male",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 37182
+     },
+     "categoria": "descrittore",
+     "dice": "Non mi sento bene",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002m",
+     "x": 1,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "caldo",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 26716
+     },
+     "categoria": "descrittore",
+     "dice": "Ho caldo",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002n",
+     "x": 2,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "freddo",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 26865
+     },
+     "categoria": "descrittore",
+     "dice": "Ho freddo",
+     "vaiA": null,
+     "nascosta": false
+    },
+    {
+     "id": "c_002o",
+     "x": 3,
+     "y": 3,
+     "w": 1,
+     "h": 1,
+     "etichetta": "ti voglio bene",
+     "immagine": {
+      "tipo": "arasaac",
+      "id": 6600
+     },
+     "categoria": "sociale",
+     "dice": "Ti voglio bene",
+     "vaiA": null,
+     "nascosta": false
+    }
+   ]
+  }
+ ]
+}
