@@ -22,6 +22,7 @@ Griglia.Editor = (function () {
     let schedaVoce = 'sintesi';                              // sintesi | registrazione
     let statoAudio = { fase: 'pronto', registratore: null }; // pronto | registrazione | lavoro
     let drag = null;
+    let unione = null;                                       // { baseId, celle: Set<id>, vuoti: Set<"x,y"> } mentre si uniscono box
     let cercaDebounce = null;
     let inputFile = null;
 
@@ -48,6 +49,7 @@ Griglia.Editor = (function () {
     }
 
     function disattiva() {
+        esciUnione();
         chiudiPannello();
         storia = [];
         app.abilitaAnnulla(false);
@@ -57,6 +59,10 @@ Griglia.Editor = (function () {
     function dopoRender() {
         sincronizzaBarra();
         if (cellaApertaId && !cellaCorrente()) chiudiPannello();
+        if (unione) {
+            if (pag().celle.some(c => c.id === unione.baseId)) evidenziaUnione();
+            else esciUnione();
+        }
     }
 
     function doc() { return app.doc; }
@@ -207,6 +213,7 @@ Griglia.Editor = (function () {
     // ---------- Celle: click, creazione, pannello ----------
     function onClickPalco(e) {
         if (app.stato.modalita !== 'modifica') return;
+        if (unione) { sceltaUnione(e); return; }
         if (drag && drag.mosso) { drag = null; return; }
         const slot = e.target.closest('.slot-vuoto');
         if (slot) { creaCella(parseInt(slot.dataset.x, 10), parseInt(slot.dataset.y, 10)); return; }
@@ -242,6 +249,7 @@ Griglia.Editor = (function () {
     }
 
     function chiudiPannello() {
+        esciUnione();
         annullaRegistrazione();
         cellaApertaId = null;
         app.setCellaSelezionata(null);
@@ -331,6 +339,10 @@ Griglia.Editor = (function () {
                 <div class="campo-gruppo campo-riga">
                     <label>Larghezza <select class="campo campo-compatto" id="pcW">${opzioni(maxW, c.w)}</select></label>
                     <label>Altezza <select class="campo campo-compatto" id="pcH">${opzioni(maxH, c.h)}</select></label>
+                </div>
+                <div class="campo-gruppo campo-riga">
+                    <button type="button" class="btn btn-secondario btn-piccolo" id="pcUnisci" title="Unisci questo box con altri box vicini: diventano un box solo">${Griglia.icona('unisci')} Unisci con altri box</button>
+                    ${c.w > 1 || c.h > 1 ? `<button type="button" class="btn btn-secondario btn-piccolo" id="pcDividi" title="Il box torna di una casella; le altre caselle tornano vuote">${Griglia.icona('dividi')} Dividi</button>` : ''}
                 </div>
                 <label class="interruttore"><input type="checkbox" id="pcNascosta" ${c.nascosta ? 'checked' : ''}><span>Nascosta: la vedi solo qui, non durante l'uso</span></label>
             </div>
@@ -514,6 +526,8 @@ Griglia.Editor = (function () {
         };
         q('#pcW').addEventListener('change', cambiaMisura);
         q('#pcH').addEventListener('change', cambiaMisura);
+        q('#pcUnisci').addEventListener('click', () => avviaUnione(c));
+        q('#pcDividi')?.addEventListener('click', () => dividiCella(c));
         q('#pcNascosta').addEventListener('change', e => { snapshot(); c.nascosta = e.target.checked; applica(); });
 
         // Azioni in basso
@@ -876,9 +890,174 @@ Griglia.Editor = (function () {
             </button>`).join('');
     }
 
+    // ---------- Unisci e dividi box ----------
+    // Si parte dal box aperto nel pannello (il suo contenuto resta), si toccano gli altri box
+    // e gli spazi vuoti da unire. Tutti insieme devono formare un rettangolo pieno: allora
+    // diventano un box solo, che occupa tutto il rettangolo.
+
+    function avviaUnione(c) {
+        unione = { baseId: c.id, celle: new Set(), vuoti: new Set() };
+        document.addEventListener('keydown', tastoUnione);
+        document.body.classList.add('in-unione');
+        riempiPannelloUnione();
+        evidenziaUnione();
+    }
+
+    function esciUnione() {
+        if (!unione) return;
+        unione = null;
+        document.removeEventListener('keydown', tastoUnione);
+        document.body.classList.remove('in-unione');
+        document.body.style.removeProperty('--altezza-unione');
+        el.palco.querySelectorAll('.unione-base, .unione-scelta').forEach(x => x.classList.remove('unione-base', 'unione-scelta'));
+        el.palco.querySelector('.unione-anteprima')?.remove();
+    }
+
+    function tastoUnione(e) {
+        if (e.key === 'Escape') { e.preventDefault(); annullaUnione(); }
+    }
+
+    function annullaUnione() {
+        const c = cellaCorrente();
+        esciUnione();
+        if (c) riempiPannello(c);
+    }
+
+    // Tocco sulla griglia durante l'unione: aggiunge o toglie un box o uno spazio vuoto
+    function sceltaUnione(e) {
+        const slot = e.target.closest('.slot-vuoto');
+        const cella = e.target.closest('.cella');
+        if (slot) {
+            const chiave = `${slot.dataset.x},${slot.dataset.y}`;
+            if (unione.vuoti.has(chiave)) unione.vuoti.delete(chiave); else unione.vuoti.add(chiave);
+        } else if (cella && cella.dataset.id !== unione.baseId) {
+            const id = cella.dataset.id;
+            if (unione.celle.has(id)) unione.celle.delete(id); else unione.celle.add(id);
+        } else {
+            return;
+        }
+        evidenziaUnione();
+        aggiornaPannelloUnione();
+    }
+
+    // Rettangolo che racchiude i box scelti e se è pieno (nessun buco, nessun altro box dentro)
+    function calcolaUnione() {
+        const p = pag();
+        const base = p.celle.find(c => c.id === unione.baseId);
+        const scelte = [...unione.celle].map(id => p.celle.find(c => c.id === id)).filter(Boolean);
+        const pezzi = [base, ...scelte].map(c => ({ x: c.x, y: c.y, w: c.w, h: c.h }))
+            .concat([...unione.vuoti].map(k => { const [x, y] = k.split(',').map(Number); return { x, y, w: 1, h: 1 }; }));
+        const x = Math.min(...pezzi.map(q => q.x)), y = Math.min(...pezzi.map(q => q.y));
+        const x2 = Math.max(...pezzi.map(q => q.x + q.w)), y2 = Math.max(...pezzi.map(q => q.y + q.h));
+        const rett = { x, y, w: x2 - x, h: y2 - y };
+        const nomi = new Set([base.id, ...scelte.map(c => c.id)]);
+        const estranee = new Set();
+        let buchi = 0;
+        for (let yy = y; yy < y2; yy++) for (let xx = x; xx < x2; xx++) {
+            const c = M().cellaIn(p, xx, yy);
+            if (c) { if (!nomi.has(c.id)) estranee.add(c); }
+            else if (!unione.vuoti.has(`${xx},${yy}`)) buchi++;
+        }
+        const quanti = scelte.length + unione.vuoti.size;
+        let motivo = '';
+        if (!quanti) motivo = 'Tocca gli altri box da unire.';
+        else if (estranee.size) motivo = `Nel rettangolo c'è anche «${[...estranee].map(c => c.etichetta || 'senza nome').join('», «')}»: toccalo per unirlo, oppure scegli box che formano un rettangolo.`;
+        else if (buchi) motivo = 'I box scelti non formano un rettangolo: tocca anche gli spazi vuoti che lo completano, oppure togli un box.';
+        return { base, scelte, rett, valido: !motivo, motivo, quanti };
+    }
+
+    function evidenziaUnione() {
+        if (!unione) return;
+        const g = el.palco.querySelector('.griglia');
+        if (!g) return;
+        g.querySelectorAll('.unione-base, .unione-scelta').forEach(x => x.classList.remove('unione-base', 'unione-scelta'));
+        g.querySelector(`.cella[data-id="${unione.baseId}"]`)?.classList.add('unione-base');
+        unione.celle.forEach(id => g.querySelector(`.cella[data-id="${id}"]`)?.classList.add('unione-scelta'));
+        unione.vuoti.forEach(k => {
+            const [x, y] = k.split(',');
+            g.querySelector(`.slot-vuoto[data-x="${x}"][data-y="${y}"]`)?.classList.add('unione-scelta');
+        });
+        // Contorno del box che nascerà: verde se si può unire, rosso se no
+        const { rett, valido, quanti } = calcolaUnione();
+        let a = g.querySelector('.unione-anteprima');
+        if (!a) { a = document.createElement('div'); a.className = 'unione-anteprima'; a.setAttribute('aria-hidden', 'true'); g.appendChild(a); }
+        a.style.gridColumn = `${rett.x + 1} / span ${rett.w}`;
+        a.style.gridRow = `${rett.y + 1} / span ${rett.h}`;
+        a.classList.toggle('non-valida', !valido && quanti > 0);
+        a.hidden = !quanti;
+    }
+
+    function riempiPannelloUnione() {
+        const c = cellaCorrente();
+        el.pannello.innerHTML = `
+            <div class="pannello-testata">
+                <h2>${Griglia.icona('unisci')} Unisci box</h2>
+                <button type="button" class="btn-icona" id="unChiudi" aria-label="Annulla l'unione">${Griglia.icona('chiudi')}</button>
+            </div>
+            <div class="pannello-corpo">
+                <p class="nota">Tocca nella griglia gli altri box da unire a «<strong>${esc(c.etichetta || 'senza nome')}</strong>», anche gli spazi vuoti. Tocca di nuovo per togliere. Insieme devono formare un rettangolo.</p>
+                <p class="nota unione-nota-extra">Resta il contenuto di «${esc(c.etichetta || 'senza nome')}»: quello degli altri box viene tolto.</p>
+                <p class="unione-stato" id="unStato" role="status" aria-live="polite"></p>
+            </div>
+            <div class="pannello-azioni">
+                <button type="button" class="btn btn-secondario" id="unAnnulla">${Griglia.icona('chiudi')} Annulla</button>
+                <button type="button" class="btn btn-primario" id="unConferma" disabled>${Griglia.icona('unisci')} Unisci</button>
+            </div>`;
+        el.pannello.querySelector('#unChiudi').addEventListener('click', annullaUnione);
+        el.pannello.querySelector('#unAnnulla').addEventListener('click', annullaUnione);
+        el.pannello.querySelector('#unConferma').addEventListener('click', confermaUnione);
+        aggiornaPannelloUnione();
+    }
+
+    function aggiornaPannelloUnione() {
+        const stato = el.pannello.querySelector('#unStato');
+        if (!stato || !unione) return;
+        const { rett, valido, motivo, quanti } = calcolaUnione();
+        stato.classList.toggle('unione-errore', !valido && quanti > 0);
+        stato.textContent = valido
+            ? `✓ ${quanti + 1} box diventano uno solo, largo ${rett.w} e alto ${rett.h} caselle.`
+            : motivo;
+        el.pannello.querySelector('#unConferma').disabled = !valido;
+        // Su tablet e telefono il pannello è un foglio in basso: la griglia si stringe sopra di
+        // lui, così tutti i box restano visibili e toccabili (regola in app.css, body.in-unione)
+        document.body.style.setProperty('--altezza-unione', `${el.pannello.offsetHeight}px`);
+    }
+
+    async function confermaUnione() {
+        const { base, scelte, rett, valido } = calcolaUnione();
+        if (!valido) return;
+        const conContenuto = scelte.filter(c => c.etichetta || c.immagine?.tipo !== 'nessuna' || c.audio || c.video || c.vaiA);
+        if (conContenuto.length) {
+            const nomi = conContenuto.map(c => `«${c.etichetta || 'senza nome'}»`).join(', ');
+            const ok = await U().conferma('Unire i box?', `Resta «${base.etichetta || 'senza nome'}». Vengono tolti: ${nomi}. Puoi tornare indietro con Annulla.`, { ok: 'Unisci' });
+            if (!ok || !unione) return;
+        }
+        snapshot();
+        const p = pag();
+        const via = new Set(scelte.map(c => c.id));
+        p.celle = p.celle.filter(c => !via.has(c.id));
+        Object.assign(base, rett);
+        esciUnione();
+        applica();
+        riempiPannello(base);
+        el.palco.querySelector(`.cella[data-id="${base.id}"]`)?.classList.add('cella-selezionata');
+        U().toast(`Box uniti: ora occupa ${rett.w} × ${rett.h} caselle`, 'ok', 2000);
+    }
+
+    // Il box torna di una casella (in alto a sinistra, con il suo contenuto): le altre tornano vuote
+    function dividiCella(c) {
+        if (c.w === 1 && c.h === 1) return;
+        snapshot();
+        c.w = 1; c.h = 1;
+        applica();
+        riempiPannello(c);
+        el.palco.querySelector(`.cella[data-id="${c.id}"]`)?.classList.add('cella-selezionata');
+        U().toast('Box diviso: le altre caselle sono vuote', 'ok', 2000);
+    }
+
     // ---------- Trascinamento (pointer events: mouse e tocco) ----------
     function onPointerDown(e) {
-        if (app.stato.modalita !== 'modifica' || e.button > 0) return;
+        if (app.stato.modalita !== 'modifica' || e.button > 0 || unione) return;
         const cella = e.target.closest('.cella');
         if (!cella) return;
         drag = { id: cella.dataset.id, el: cella, x0: e.clientX, y0: e.clientY, mosso: false, ghost: null, target: null, pointerId: e.pointerId };

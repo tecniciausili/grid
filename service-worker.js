@@ -8,7 +8,7 @@
  * - I dati dell'utente NON passano di qui: stanno in IndexedDB (griglia_db).
  * Cambiando VERSIONE si svuota la cache dei file dell'app.
  */
-const VERSIONE = '2.0.0';
+const VERSIONE = '2.1.0';
 const CACHE_APP = `griglia-app-${VERSIONE}`;
 const CACHE_IMMAGINI = 'griglia-immagini-v1';
 const CACHE_FONT = 'griglia-font-v1';
@@ -21,24 +21,24 @@ const FILE_APP = [
     './utente.html',
     './app.html',
     './manifest.json',
-    './css/styles.css?v=2.0.0',
-    './css/app.css?v=2.0.0',
-    './js/config.js?v=2.0.0',
-    './js/icone.js?v=2.0.0',
-    './js/modello.js?v=2.0.0',
-    './js/voce.js?v=2.0.0',
-    './js/audio.js?v=2.0.0',
-    './js/arasaac.js?v=2.0.0',
-    './js/veloce.js?v=2.0.0',
-    './js/storage.js?v=2.0.0',
-    './js/video.js?v=2.0.0',
-    './js/input.js?v=2.0.0',
-    './js/griglia.js?v=2.0.0',
-    './js/importa.js?v=2.0.0',
-    './js/editor.js?v=2.0.0',
-    './js/app.js?v=2.0.0',
-    './js/gestione.js?v=2.0.0',
-    './js/utente.js?v=2.0.0',
+    './css/styles.css?v=2.1.0',
+    './css/app.css?v=2.1.0',
+    './js/config.js?v=2.1.0',
+    './js/icone.js?v=2.1.0',
+    './js/modello.js?v=2.1.0',
+    './js/voce.js?v=2.1.0',
+    './js/audio.js?v=2.1.0',
+    './js/arasaac.js?v=2.1.0',
+    './js/veloce.js?v=2.1.0',
+    './js/storage.js?v=2.1.0',
+    './js/video.js?v=2.1.0',
+    './js/input.js?v=2.1.0',
+    './js/griglia.js?v=2.1.0',
+    './js/importa.js?v=2.1.0',
+    './js/editor.js?v=2.1.0',
+    './js/app.js?v=2.1.0',
+    './js/gestione.js?v=2.1.0',
+    './js/utente.js?v=2.1.0',
     './js/vendor/lame.min.js?v=1.2.1',
     './js/vendor/jszip.min.js?v=3.10.1',
     './modelli/indice.json',
@@ -100,7 +100,7 @@ async function dallaCacheEAggiorna(event, req) {
     const eNavigazione = req.mode === 'navigate';
     const inCache = await cache.match(req, { ignoreSearch: eNavigazione });
     const daRete = fetch(req).then(risposta => {
-        if (risposta && risposta.ok && risposta.type === 'basic') {
+        if (risposta && risposta.ok && risposta.type === 'basic' && !risposta.redirected) {
             const chiave = eNavigazione ? new URL(req.url).pathname : req;
             cache.put(chiave, risposta.clone());
         }

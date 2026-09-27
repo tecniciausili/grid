@@ -63,6 +63,14 @@ index.html ──► Area Educatore (gestione.html)   comunicatori, archivio vid
 - **Modifica in pagina**: tocca una cella e cambi parola, immagine (ricerca ARASAAC o foto dal
   dispositivo), colore, azione e misura nel pannello a lato; trascina per spostare o scambiare;
   tocca uno spazio vuoto per aggiungere. Annulla (Ctrl+Z), salvataggio automatico.
+- **Unisci e dividi box**: nel pannello di una cella «Unisci con altri box», poi si toccano nella
+  griglia gli altri box (anche spazi vuoti) e «Unisci»: diventano un box solo, che occupa tutto lo
+  spazio. Resta il contenuto del box di partenza, quello degli altri viene tolto (con conferma; si
+  torna indietro con Annulla). Insieme devono formare un rettangolo pieno: un contorno verde mostra il
+  risultato, rosso con la spiegazione quando non si può (per esempio in diagonale, o se nel rettangolo
+  c'è un altro box non scelto). Esc annulla. «Dividi» riporta un box unito a una casella; le altre
+  tornano vuote. Su tablet e telefono la griglia si stringe sopra il pannello, così tutti i box
+  restano toccabili.
 - **Modelli italiani** pronti (Le mie parole, Sì no aiuto, A scuola, Io e gli altri) con
   pittogrammi ARASAAC scelti dall'API ufficiale.
 - **Pagina veloce, dallo schizzo su carta alle celle** («Da parole» in Nuovo comunicatore, pulsante

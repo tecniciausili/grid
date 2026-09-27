@@ -4,7 +4,7 @@
  */
 window.Griglia = window.Griglia || {};
 
-Griglia.VERSIONE = '2.0.0';
+Griglia.VERSIONE = '2.1.0';
 Griglia.APP_NAME = 'grid';
 // Chiave YouTube Data API v3 (la stessa dello strumento Agenda). Serve solo alla ricerca nell'Area Educatore:
 // se la chiave ha restrizioni sui referrer, va aggiunto il dominio di Azure nella Google Cloud Console.

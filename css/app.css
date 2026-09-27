@@ -181,6 +181,18 @@ body[data-preset="neutro"] .cella-cartella { border-width: 6px; }
 .drop-target { outline: 4px dashed var(--link); outline-offset: 2px; background-color: rgba(61, 59, 255, .12) !important; }
 body.in-trascinamento { cursor: grabbing; }
 
+/* Unisci box: il box di partenza, quelli scelti e il contorno del box che nascerà */
+.unione-base { outline: 4px solid var(--link); outline-offset: 3px; }
+.unione-scelta { outline: 4px dashed var(--link); outline-offset: 2px; background-color: rgba(61, 59, 255, .14) !important; }
+.unione-anteprima {
+    pointer-events: none; z-index: 5; position: relative;
+    border: 4px dashed var(--ok); border-radius: clamp(10px, 2vmin, 20px); margin: -6px;
+    background: rgba(46, 125, 50, .08);
+}
+.unione-anteprima.non-valida { border-color: var(--errore); background: rgba(198, 40, 40, .08); }
+.unione-stato { font-weight: 700; font-size: 15px; color: var(--ok); margin-top: 10px; }
+.unione-stato.unione-errore { color: var(--errore); }
+
 /* Permanenza (dwell) */
 .input-dwell .cella, .input-dwell .barra-btn { cursor: default; }
 .dwell-attivo::after {
@@ -287,6 +299,8 @@ body.in-trascinamento { cursor: grabbing; }
         box-shadow: 0 -8px 30px rgba(20, 22, 43, .25);
     }
     .editor-suggerimento { display: none; }
+    body.in-unione .palco { padding-bottom: calc(var(--altezza-unione, 0px) + 8px); }
+    body.in-unione .unione-nota-extra { display: none; }
     .barra-btn-testo { display: none; }
     .barra-parla { padding: 0 10px; }
     .testata-nome { font-size: 16px; }
